@@ -20,3 +20,9 @@
 @import "./layout/sidebar";
 @import "./layout/header";
 @import "./layout/footer";
+
+
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
