@@ -3,9 +3,18 @@
 .hero {
   &::before {
     content: url(../../../assets/imgs/home/hero-grading.png);
-    @include position (absolute, 0, 80%, 0, 0);
-    transform: translateX(80%);
+    @include position (absolute, 0, 0, 0, 0);
     z-index: -1;
+    animation: rotation 5s infinite linear;
+
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
   }
 
   &__title {
