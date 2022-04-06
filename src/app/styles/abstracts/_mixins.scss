@@ -1,0 +1,149 @@
+// Small devices
+@mixin sm {
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (max-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (max-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+// Extra Extra large devices
+@mixin xxl {
+  @media (max-width: #{$screen-xxl-min}) {
+    @content;
+  }
+}
+
+/// Custom devices
+/// @param {screen} $screen
+@mixin rwd($screen) {
+  @media (max-width: ($screen + 'px')) {
+    @content;
+  }
+}
+
+/// Function for string replacement
+/// @param {string} $string
+/// @param {search} $search
+/// @param {replace} $replace [""]
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+/// Shorthand mixin for generate fonts face
+/// @param {name} $name
+/// @param {path} $path
+/// @param {weight} $weight [null]
+/// @param {style} $style [null]
+/// @param {exts} $exts [eot woff2 woff ttf svg]
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_"),
+  );
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype",
+  );
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+/// Shorthand mixin for generate the size of any element
+/// @param {width} $width
+/// @param {height} $height [$width]
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// Shorthand mixin for generate round corners
+/// @param {arc} $arc
+@mixin rounded-corner($arc) {
+  -moz-border-radius: $arc;
+  -webkit-border-radius: $arc;
+  border-radius: $arc;
+}
+
+/// Shorthand mixin for offset positioning
+/// @param {position} $position
+/// @param {top} $top [null]
+/// @param {right} $right [null]
+/// @param {bottom} $bottom [null]
+/// @param {left} $left [null]
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+/// Shorthand mixin for absolute positioning
+/// Serves as an alias for `position(absolute, ...)`
+/// @param {args} $args - Offsets
+/// @require {mixin} position
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+
+/// Shorthand mixin for relative positioning
+/// Serves as an alias for `position(relative, ...)`
+/// @param {args} $args - Offsets
+/// @require {mixin} position
+@mixin relative($args...) {
+  @include position(relative, $args...);
+}
+
+/// Shorthand mixin for fixed positioning
+/// Serves as an alias for `position(fixed, ...)`
+/// @param {args} $args - Offsets
+/// @require {mixin} position
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+
+/// Shorthand mixin for generate button size
+/// @param {padding-y} $padding-y
+/// @param {padding-x} $padding-x
+/// @param {font-size} $font-size
+/// @param {border-radius} $border-radius
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  @include rounded-corner($border-radius);
+}

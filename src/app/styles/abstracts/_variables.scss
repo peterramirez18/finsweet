@@ -1,0 +1,46 @@
+// Container
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Large tablets and small desktops
+$screen-lg-min: 992px;
+
+// Extra large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Extra extra large desktops and tv's
+$screen-xxl-min: 1320px;
+
+// Font Families
+$font-family-primary: "NeoTech", sans-serif;
+$font-family-secondary: "Helvetica", sans-serif;
+$font-family-tertiary: "Tahoma", sans-serif;
+
+// Weights
+$lighter: 300;
+$normal: 400;
+$semibold: 500;
+$bold: 700;
+
+// Colors
+$primary:#1D2130;
+$blue:#6B7CFF;
+$light-violet:#E0E4FC;
+$white:#FFFFFF;
+$label-gradient: linear-gradient(53.94deg, #373FFF 15.02%, #3ACAF8 82.83%);
+$bluer-gradient: radial-gradient(483.9% 2719.65% at -49.5% -250%, #D798E1 17.55%, #9BFFA5 27.56%, #AED3FF 49.89%, #C9D4EF 56.53%, #CACFFA 65.69%);
+
+
+// Header Size
+$header-height: 4.4375rem;

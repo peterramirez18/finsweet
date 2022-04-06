@@ -1,0 +1,11 @@
+input{
+    border: none;
+    &::placeholder{
+        color: $primary;
+        opacity: 0.4;
+        font-size: 16px;
+    }
+    &:focus{
+        outline: none;
+    }
+}

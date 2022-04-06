@@ -1,0 +1,18 @@
+<section class="header container d-flex justify-content-between align-items-center">
+    <div class="brand d-flex align-items-center">
+        <i class='d-md-none bx bx-menu-alt-left header__hamburguer' (click)="menuToggleF()"></i>
+        <img src="assets/imgs/global/black-logo.svg" alt="">
+    </div>
+    <div class="d-flex align-items-center {{!menuToggle! ? 'menu-close' : ''}}">
+        <ul class="nav">
+            <i class='bx bx-x d-block d-md-none icon-close' (click)="menuToggleF()"></i>
+            <li (click)="menuToggleF()" class="nav__item active">Home</li>
+            <li (click)="menuToggleF()" class="nav__item">Product</li>
+            <li (click)="menuToggleF()" class="nav__item">Pricing</li>
+            <li (click)="menuToggleF()" class="nav__item">About</li>
+            <li (click)="menuToggleF()" class="nav__item">Blog</li>
+            <li (click)="menuToggleF()" class="nav__item">Contact</li>
+        </ul>
+        <a href="#" class="btn"> Free trial</a>
+    </div>
+</section>

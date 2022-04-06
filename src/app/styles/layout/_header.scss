@@ -1,0 +1,54 @@
+.header {
+  height: $header-height;
+
+  &__hamburguer {
+    font-size: 2rem;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+
+  .nav {
+    &__item {
+      font-size: 1em;
+      font-weight: $normal;
+      margin-right: 32px;
+
+      &:hover {
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+
+    .active {
+      color: $blue;
+      font-weight: $bold;
+    }
+  }
+}
+
+@include md{
+    .icon-close{
+        @include position (absolute, 1rem, 1rem);
+        font-size: 2.5rem;
+        color: $light-violet;
+        cursor: pointer;
+    }
+    .nav{
+        @include position (absolute, 0, 30%, 0, 0);
+        background-color: $primary;
+        color: $white;
+        flex-direction: column;
+        padding: 4rem;
+        transform: translateX(0);
+        transition: all 300ms ease-out;
+
+        &__item{
+            margin-bottom: 2rem;
+        } 
+    }
+    .menu-close{
+        .nav{
+            transform: translateX(-100%);
+        }
+    }
+}
