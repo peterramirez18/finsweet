@@ -93,3 +93,54 @@
   background-repeat: no-repeat;
   padding: 59px 0;
 }
+
+.logos{
+  margin-top: 80px !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-content: space-between;
+
+  img{
+    margin: 0 auto;
+  }
+}
+
+.discover-more{
+  $self: &;
+  margin-top: 128px !important;
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      margin-bottom: 15px;
+      width: 80%;
+      #{ $self }__icon {
+        background-color: $gray;
+        padding: 1rem;
+        margin-right: 24px;
+        border-radius: 10rem;
+      }
+    }
+
+  }
+}
+
+@include rwd(1080){
+  .logos{
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 2rem;
+  }
+}
+@include md{
+  .logos{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@include sm{
+  .logos{
+    grid-template-columns: 1fr;
+  }
+}
+
