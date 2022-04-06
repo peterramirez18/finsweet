@@ -21,7 +21,7 @@ h2{
   line-height: 120%;
 }
 h3{
-  font-size: 2.25em;
+  font-size: 2em;
   line-height: 120%;
 }
 h4{
@@ -46,6 +46,10 @@ p{
   font-weight: $bold;
   line-height: 120%;
   background: $label-gradient;
+  width: fit-content;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 
