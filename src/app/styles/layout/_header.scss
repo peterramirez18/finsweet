@@ -14,13 +14,13 @@
       margin-right: 32px;
 
       &:hover {
-        color: $blue;
+        color: $purple;
         cursor: pointer;
       }
     }
 
     .active {
-      color: $blue;
+      color: $purple;
       font-weight: $bold;
     }
   }

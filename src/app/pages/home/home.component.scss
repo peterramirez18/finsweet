@@ -1,9 +1,9 @@
-@import '../../../app/styles/global.scss';
+@import "../../styles/global.scss";
 
 .hero {
   &::before {
     content: url(../../../assets/imgs/home/hero-grading.png);
-    @include position (absolute, 0, 0, 0, 0);
+    @include position(absolute, 0, 0, 0, 0);
     z-index: -1;
     animation: rotation 5s infinite linear;
 
@@ -69,7 +69,7 @@
   &__list {
     list-style: none;
     padding: 0;
-    
+
     li {
       margin-bottom: 15px;
       width: 80%;
@@ -82,11 +82,10 @@
         height: fit-content;
       }
     }
-
   }
 }
 
-.more-impressions{
+.more-impressions {
   margin-top: 128px;
   background-image: url(../../../assets/imgs/home/more-impressions-grading.png);
   background-size: cover;
@@ -94,25 +93,25 @@
   padding: 59px 0;
 }
 
-.logos{
+.logos {
   margin-top: 80px !important;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-content: space-between;
 
-  img{
+  img {
     margin: 0 auto;
   }
 }
 
-.discover-more{
+.discover-more {
   $self: &;
   margin-top: 128px !important;
 
   &__list {
     list-style: none;
     padding: 0;
-    
+
     li {
       margin-bottom: 15px;
       width: 80%;
@@ -123,24 +122,97 @@
         border-radius: 10rem;
       }
     }
-
   }
 }
 
-@include rwd(1080){
-  .logos{
+.features {
+  $self: &;
+  margin-top: 130px;
+
+  &__content {
+    background-color: rgba($color: $purple-light, $alpha: 0.15);
+    padding: 64px 68px;
+    border-radius: 24px;
+    margin-top: 48px;
+
+    #{ $self }__subtitle {
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+
+    div > div:nth-child(n + 2) {
+      &::before {
+        content: "";
+        height: 100%;
+        width: 2px;
+        background-color: $silver;
+        display: block;
+        position: absolute;
+        transform: translateX(-35px);
+      }
+    }
+  }
+}
+
+.testimonials{
+  margin-top: 128px !important;
+  $self: &;
+
+  &__title{
+    width: 55%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 48px;
+  }
+
+  &__testimonial{
+    padding: 64px;
+    border-radius: 24px;
+    border: 2px solid rgba($color: $blue, $alpha: 0.26);
+
+    #{ $self }__image{
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      margin-top: 25px;
+      margin-bottom: 12px;
+      img{
+        width: 56px;
+        height: 56px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@include rwd(1080) {
+  .logos {
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 2rem;
   }
 }
-@include md{
-  .logos{
+
+@include rwd(988) {
+  .features {
+    $self: &;
+    &__content {
+      div > div:nth-child(n + 2) {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@include md {
+  .logos {
     grid-template-columns: 1fr 1fr;
   }
 }
-@include sm{
-  .logos{
+@include sm {
+  .logos {
     grid-template-columns: 1fr;
   }
 }
-
