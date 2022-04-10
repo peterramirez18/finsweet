@@ -1,0 +1,52 @@
+@import '../../styles/global.scss';
+
+.footer{
+  padding: 64px 0;
+  background-color: $primary;
+  color: $white;
+
+  & > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  &__head{
+    font-weight: $bold;
+  }
+  &__text{
+    opacity: 0.5;
+  }
+  &__input{
+    width: fit-content;
+    background-color: $primary-light;
+    border-radius: 12px 0 0 12px;
+    input{
+      background: none;
+      padding-left: 1rem;
+      &::placeholder{
+        color: white;
+      }
+    }
+  }
+}
+
+@include rwd (995){
+.footer{
+  & > div {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+  }
+}
+}
+
+@include sm{
+  .footer{
+    & > div {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    &__input{
+      margin:  0 auto;
+    }
+  }
+}
