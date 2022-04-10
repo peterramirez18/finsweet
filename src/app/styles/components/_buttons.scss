@@ -1,6 +1,6 @@
 .btn{
   background-color: $primary;
-  color: $white;
+  color: $white !important;
   font-weight: $bold;
   font-size: 1em;
   padding: 16px 40px;
@@ -8,5 +8,11 @@
 
   &:hover{
     background-color: $purple;
+  }
+
+  &--white{
+    @extend .btn;
+    background-color: $white !important;
+    color: $primary !important;
   }
 }
